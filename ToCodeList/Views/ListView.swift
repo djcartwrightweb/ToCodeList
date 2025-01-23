@@ -9,19 +9,20 @@ import SwiftUI
 
 struct ListView: View {
     
-    @State var items: [String] = [
-        "this is the first",
-        "second",
-        "third"
+    @State var items: [ItemModel] = [
+        ItemModel(title: "item 1", isCompleted: false),
+        ItemModel(title: "item 2", isCompleted: true),
+        ItemModel(title: "item 3", isCompleted: false),
     ]
     
     var body: some View {
         List {
-            ForEach(items, id: \.self) { item in
-                ListRowView(title: item)
+            ForEach(items) { item in
+                ListRowView(item: item)
             }
         }
         .listStyle(.plain)
+        .padding(.top)
         .navigationTitle("ToCodeList 💻")
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
