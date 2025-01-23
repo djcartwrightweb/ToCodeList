@@ -13,20 +13,27 @@ struct ListView: View {
     
     
     var body: some View {
-        List {
-            ForEach(vm.items) { item in
-                ListRowView(item: item)
-                    .onTapGesture {
-                        withAnimation(.linear) {
-                            vm.updateItem(item: item)
-                        }
+        ZStack {
+            if vm.items.isEmpty {
+                NoItemsView()
+                    .transition(AnyTransition.opacity.animation(.easeIn))
+            } else {
+                List {
+                    ForEach(vm.items) { item in
+                        ListRowView(item: item)
+                            .onTapGesture {
+                                withAnimation(.linear) {
+                                    vm.updateItem(item: item)
+                                }
+                            }
                     }
+                    .onDelete(perform: vm.deleteItem)
+                    .onMove(perform: vm.moveItem)
+                }
+                .listStyle(.plain)
+                .padding(.top)
             }
-            .onDelete(perform: vm.deleteItem)
-            .onMove(perform: vm.moveItem)
         }
-        .listStyle(.plain)
-        .padding(.top)
         .navigationTitle("ToCodeList 💻")
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
