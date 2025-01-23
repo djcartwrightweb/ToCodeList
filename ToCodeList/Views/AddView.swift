@@ -23,7 +23,7 @@ struct AddView: View {
                     .padding(.leading)
                     .frame(height: 55)
                     .frame(maxWidth: .infinity)
-                    .background(Color.gray.opacity(0.2))
+                    .background(Color(uiColor: .secondarySystemBackground))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 
                 Button {

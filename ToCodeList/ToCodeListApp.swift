@@ -16,6 +16,7 @@ struct ToCodeListApp: App {
         WindowGroup {
             NavigationStack {            
                 ListView()
+//                    .preferredColorScheme(.dark)
             }
             .environment(vm)
         }

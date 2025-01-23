@@ -42,6 +42,7 @@ struct NoItemsView: View {
                 )
 
             }
+            .frame(maxWidth: 400)
             .multilineTextAlignment(.center)
             .padding(40)
             .onAppear {
@@ -49,7 +50,7 @@ struct NoItemsView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .navigationTitle("Title")
+        .navigationTitle("ToCodeList 💻")
     }
     
     func addAnimation() {

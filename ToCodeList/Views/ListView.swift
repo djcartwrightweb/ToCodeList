@@ -52,6 +52,7 @@ struct ListView: View {
 #Preview {
     NavigationStack {
         ListView()
+            .preferredColorScheme(.dark)
     }
     .environment(DeveloperPreview.shared.vm)
 }
